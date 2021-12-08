@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="/fontawesome-free-5.15.4-web/css/fontawesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+<link rel="stylesheet" type="text/css" href="/animate/animate.css">
+
+<link rel="stylesheet" type="text/css" href="/css-hamburgers/hamburgers.min.css">
+
+<link rel="stylesheet" type="text/css" href="/animsition/css/animsition.min.css">
+
+<link rel="stylesheet" type="text/css" href="/select2-4.0.13/dist/css/select2.min.css">
+
+<link rel="stylesheet" type="text/css" href="/daterangepicker-master/daterangepicker.css">
+
+<link rel="stylesheet" type="text/css" href="/util.css">
+<link rel="stylesheet" type="text/css" href="/main.css">
+
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+<div class="limiter">
+<div class="container-login100" style="background-image: url('/imagens/bg-01.jpg');">
+<div class="wrap-login100">
+<form action="/login" method="POST" class="login100-form validate-form">
+<span class="login100-form-logo">
+<i class="zmdi zmdi-landscape"></i>
+</span>
+<span class="login100-form-title p-b-34 p-t-27">
+Log in
+</span>
+<div class="wrap-input100 validate-input" data-validate="Enter username">
+<input class="input100" type="text" name="username" placeholder="Username">
+<span class="focus-input100" data-placeholder="&#xf207;"></span>
+</div>
+<div class="wrap-input100 validate-input" data-validate="Enter password">
+<input class="input100" type="password" name="password" placeholder="Password">
+<span class="focus-input100" data-placeholder="&#xf191;"></span>
+</div>
+<% if(message) { %>
+  <p>
+    <label style="color:Red"><%= message %></label>
+  </p>
+<%}%>
+<div class="contact100-form-checkbox">
+<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+<label class="label-checkbox100" for="ckb1">
+Remember me
+</label>
+</div>
+<div class="container-login100-form-btn">
+<button class="login100-form-btn">
+Login
+</button>
+</div>
+<div class="text-center p-t-90">
+<a class="txt1" href="#">
+Forgot Password?
+</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+
+<script src="/javascripts/jquery-3.2.1.min.js"></script>
+
+<script src="/animsition/js/animsition.min.js"></script>
+
+<script src="/bootstrap/js/popper.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/select2/dist/js/select2.min.js"></script>
+
+<script src="/daterangepicker/moment.min.js"></script>
+<script src="/daterangepicker/daterangepicker.js"></script>
+
+<script src="/countdowntime/countdowntime.js"></script>
+
+<script src="/main.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v64f9daad31f64f81be21cbef6184a5e31634941392597" integrity="sha512-gV/bogrUTVP2N3IzTDKzgP0Js1gg4fbwtYB6ftgLbKQu/V8yH2+lrKCfKHelh4SO3DPzKj4/glTO+tNJGDnb0A==" data-cf-beacon='{"rayId":"6b37450758b4e084","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.11.0","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

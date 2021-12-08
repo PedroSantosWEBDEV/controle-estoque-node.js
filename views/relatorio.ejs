@@ -1,0 +1,105 @@
+<div id="relatorio">
+
+    <h2> Relátório <%= title %> </h2>
+
+    <form onsubmit="return false;">
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">Código:</th>
+              <th scope="col">Produto:</th>
+              <th scope="col">Quantidade:</th>
+            </tr>
+        </thead>
+
+        <tbody>
+                <% for (var i =0; i< produtos.length; i++){ %>
+    
+        <tr>
+            <td> <%= produtos[i].estoque_cd_produto %> </td>
+            <td> <%= produtos[i].ds_produto %> </td>
+            <td> <%= produtos[i].qt_soma %> </td>
+    
+        </tr>
+          <% } %>
+          <tbody>
+    
+    </table>
+    <button id="btnGeraPdf" onclick="geraPdf('<%= JSON.stringify(produtos)%>')"> Salvar como Pdf </button>
+    <button id="btnInprimir">Imprimir</button>
+</form>
+</div>
+
+<script>
+
+    function geraPdf(produtos){
+        var dados = JSON.parse(produtos);
+
+        var externalDataRetrievedFromServer = dados.map(i => ({ 
+            Código:i.estoque_cd_produto,
+            Descrição:i.ds_produto,
+            Quantidade: i.qt_soma
+        }));
+
+        function buildTableBody(data, columns) {
+            var body = [];
+
+            body.push(columns);
+
+            data.forEach(function(row) {
+                var dataRow = [];
+                columns.forEach(function(column) {
+                dataRow.push(row[column].toString());
+                })
+
+            body.push(dataRow);
+        });
+
+        return body;
+        }
+
+    function table(data, columns) {
+        return {
+            table: {
+            headerRows: 1,
+            body: buildTableBody(data, columns),
+			      },
+            footer: function(currentPage, pageCount) { 
+                return currentPage.toString() + ' of ' + pageCount; },
+            layout: {
+				        fillColor: function (i, node) {
+					          return (i % 2 === 0) ? '#CCCCCC' : null;
+				        }
+            }
+        };
+    }
+
+    var dd = {
+        pageSize: 'A4',
+        // [left, top, right, bottom] or [horizontal, vertical] 
+        pageMargins: [ 40, 60, 40, 60 ],
+        content: [
+            { text: 'Relatório', style: 'header' },
+            table(externalDataRetrievedFromServer, ['Código', 'Descrição','Quantidade']),
+        ],
+
+        styles: {
+            header: {
+                fontSize: 18,
+                bold: true,
+                margin: [20, 20, 0, 20],
+                alignment: 'center'
+            },
+
+            items: {
+                alignment: 'center'
+            },
+        }
+    }   
+
+    pdfMake.createPdf(dd).open();
+    // download the PDF
+    pdfMake.createPdf(dd).download('relatorio.pdf');
+    }
+    
+</script>
