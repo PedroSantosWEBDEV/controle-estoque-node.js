@@ -1,0 +1,93 @@
+/*Painel para Escolher tipo de relatorio e datas*/
+
+/*Container geral*/
+.click-grid {
+	display:flex;
+	flex-wrap: wrap;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    border: solid #d4d8dc;
+    border-radius: 3px;
+    width: 40%;
+	z-index: 110;
+    padding:10px;
+    float:left;
+    margin-right:10px;
+    
+}
+
+#date-grid{display:flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+    border: solid #d4d8dc;
+    border-radius: 3px;
+    width: 40%;
+    padding:10px;
+    float:left;
+    height:378px;
+    }
+
+.click-grid__box .click-grid__label {
+    
+    background-color: #fff;
+    border: solid #d9d9d9;
+    border-width: 1px 1px 1px 1px;
+    color:#000;
+    cursor: pointer;
+    font-weight: 500;
+    height: 100%;
+    margin-bottom:0;
+    min-height: 40px;
+    padding: 13px 5px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+}
+.click-grid__input:checked+.click-grid__label {
+    background-color: #d12e6a;
+    color: #F1F2F4;
+}
+
+input[type='checkbox']+label, .page-v1 input[type='radio']+label {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.click-grid__input {
+    height: 0;
+    position: absolute;
+    width: 0;
+    z-index: -1000;
+}
+
+.click-grid__input:not(:checked):enabled+.click-grid__label:hover {
+    background-color: #f1c0d2;
+}
+
+.step{background-color:#081235; color:#fff; width:50px; height: 50px; border-radius:50px;
+text-align:center; font-size:30px; margin-bottom:10px; margin-top:10px;}
+form{margin-bottom:10px; }
+
+/* Div de informações individual de um fornecedor*/
+.containerInfoFornecedor ul li{padding:0 10px 10px 0; font-size:15px;}
+strong{text-transform: uppercase;}
+
+
+
+    
+
+/* Produtos Mais Vendidos
+    Produtos Menos Vendidos
+    Produtos com Estoque Minimo
+    Produtos com Estoque Máximo
+    Consumo de Produto
+    Gastos Pessoais
+    Gastos da Loja
+    Todos fornecedores*/

@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+*, body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Raleway', sans-serif;
+
+}
+
+.clear {
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: #fff;
+}
+
+ul li {
+	list-style: none;
+}
+
+h1 {
+	color: #FD5286;
+	font-size:20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+h2 {
+	color: #FD5286;
+	font-size:18px;
+	font-weight: bold;
+}
+
+h5 {
+font-size:16px;
+font-weight: bold;
+}
+
+/*#msg{
+	position: fixed; 
+	width: 200px; 
+	height: 200px; 
+	margin:0; 
+	border-radius:5px; 
+	background-color:orange;}*/
