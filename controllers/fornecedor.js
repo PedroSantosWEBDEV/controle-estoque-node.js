@@ -7,15 +7,24 @@ module.exports.getNovoFornecedor = (req, res, next) => {
     
 };
 
+module.exports.getEditFornecedor = (req, res, next) => {
+  var id = req.params.id;
+  fornecedorModel.editarFornecedor(id, req, res, next);
+  // res.render('editfornecedor');            
+
+};
+
 module.exports.insereNovoFornecedor = (req, res, next) =>{
   var formfornecedor = req.body;
+  // console.log(formfornecedor);
   fornecedorModel.insereNovoFornecedor(formfornecedor, req, res, next);
 
 }
 
-module.exports.editFornecedor = (req, res, next) =>{
+module.exports.atualizarNovoFornecedor = (req, res, next) =>{
   var formfornecedor = req.body;
-  fornecedorModel.editFornecedor(formfornecedor, req, res, next);
+  var id = req.params.id;
+  fornecedorModel.atualizarNovoFornecedor(formfornecedor,id, req, res, next);
 
 }
 
@@ -30,9 +39,5 @@ module.exports.deleteFornecedor = (req, res, next) => {
   fornecedorModel.deleteFornecedor(id, req, res, next);
 };
 
-module.exports.editarFornecedor = (req, res, next) => {
-  var id = req.params.id;
-  fornecedorModel.editarFornecedor(id, req, res, next);
-}
 
 

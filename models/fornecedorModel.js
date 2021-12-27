@@ -45,16 +45,16 @@ module.exports.editarFornecedor = (id,req, res, next) =>{
 
   connection.query("Select * from fornecedor where cd_fornecedor= ?", id, function(error, result){
     if (error){throw error;}
-    res.render('editarfornecedor', {dados:result});
+    res.render('editfornecedor', {dados:result});
     
   });
 
 };
 
-module.exports.editFornecedor = (formfornecedor, req, res, next)=>{
+module.exports.atualizarNovoFornecedor = (id,formfornecedor, req, res, next)=>{
   var connection = db();
 
-  connection.query("UPDATE fornecedor SET  ?", formfornecedor, function(err, result) {
+  connection.query('UPDATE fornecedor SET ? WHERE cd_fornecedor = ?', [id,formfornecedor], function(err, result) {
 
     if(err){console.error(err);
 
