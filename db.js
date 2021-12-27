@@ -5,7 +5,8 @@ module.exports = function(){
         host : '127.0.0.1', 
         user: 'root',
         password: '',
-        database: 'estoque'
+        database: 'estoque',
+        port: 3307
     });
 
     connection.connect(function(err) {

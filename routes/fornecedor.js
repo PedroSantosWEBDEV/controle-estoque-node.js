@@ -4,6 +4,7 @@ var controller = require('../controllers/fornecedor');
 
 router.get('/novofornecedor', controller.getNovoFornecedor);
 router.post('/novofornecedor', controller.insereNovoFornecedor);
+router.post('/editfornecedor', controller.editFornecedor);
 
 router.get('/listafornecedores/delete/:id', controller.deleteFornecedor);
 router.get('/listafornecedores/edit/:id', controller.editarFornecedor);

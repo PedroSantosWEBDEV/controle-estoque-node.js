@@ -13,10 +13,10 @@ module.exports = function(passport){
     }
     
     function findUserById(id){
-        return clientes.find(user => user._id === id);
+        return clientes.find(user => user.id === id);
     }
     passport.serializeUser((user, done) => {
-        done(null, user._id);
+        done(null, user.id);
     });
 
     passport.deserializeUser((id, done) => {

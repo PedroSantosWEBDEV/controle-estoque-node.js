@@ -97,13 +97,13 @@
         
             <div class="form-row">
               <div class="form-group md-col-2">
-                <label for="cd_tel1">Telefone 1</label>
-                <input id="cd_tel1" name="cd_tel1" class="form-control telefone" value="<%= dados[i].cd_tel1 %>"/>
+                <label for="cd_telvendedor1">Telefone 1</label>
+                <input id="cd_telvendedor1" name="cd_telvendedor1" class="form-control telefone" value="<%= dados[i].cd_telvendedor1 %>"/>
               </div>
         
               <div class="form-group md-col-2">
-                <label for="cd_tel2">Telefone 2</label>
-                <input id="cd_tel2" name="cd_tel2" class="form-control telefone" value="<%= dados[i].cd_tel2 %>" />
+                <label for="cd_telvendedor2">Telefone 2</label>
+                <input id="cd_telvendedor2" name="cd_telvendedor2" class="form-control telefone" value="<%= dados[i].cd_telvendedor2 %>" />
               </div>
         
               <div class="form-group md-col-3">
@@ -119,18 +119,18 @@
         
             <div class="form-row">
               <div class="form-group md-col-5">
-                <label for="nm_vendedor">Vendedor</label>
-                <input id="nm_vendedor" name="nm_vendedor" class="form-control" value= "<%= dados[i].nm_vendedor %>"/>
+                <label for="nom_vendedor">Vendedor</label>
+                <input id="nom_vendedor" name="nom_vendedor" class="form-control" value= "<%= dados[i].nom_vendedor %>"/>
               </div>
             
               <div class="form-group md-col-2">
-                <label for="cd_telvendedor">Celular</label>
-                <input id="cd_telvendedor" name="cd_telvendedor" class="form-control celular" value= "<%= dados[i].nm_telvendedor %>" />
+                <label for="nm_vendedor">Celular</label>
+                <input id="nm_vendedor" name="nm_vendedor" class="form-control celular" value= "<%= dados[i].nm_vendedor %>" />
               </div>
             </div>
             <% } %>
-             <input id="btnCancelar" type="reset"/>
-             <button id="btnGravar" type="button" data-toggle="modal" data-target="#mymodal" >Inserir</button>
+            <input id="btnCancelar" type="reset"/>
+            <button id="btnGravar" type="button" data-toggle="modal" data-target="#mymodal" >Inserir</button>
         
             <div id="mymodal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
