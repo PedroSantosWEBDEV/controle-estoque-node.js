@@ -31,6 +31,32 @@
   <form id="form" method="post">
 
     <div class="form-row">
+      <div class="form-group  md-col-2">
+          <label for="">Tipo de cadastro</label>
+          <select name="tipo_cadastro" id="tipo_cadastro" class="input-default">
+              <option value="Cliente">Cliente</option>
+              <option value="Fornecedor">Fornecedor</option>
+              <option value="Ambos">Ambos</option>
+          </select>
+      </div>
+
+    <div class="form-group  md-col-2">
+        <label for="tipo_pessoa">Tipo de pessoa</label>
+        <select class="input-default" name="tipo_pessoa" id="tipo_pessoa">
+            <option value="PJ">Pessoa Jurídica</option>
+            <option value="PF">Pessoa Física</option>
+        </select>
+    </div>
+
+    <div class="form-group  md-col-2">
+      <label for="id_categoria">Categoria / Classificação</label>
+      <select class="input-default" name="id_categoria" id="id_categoria">
+          <option value="999">Todas</option>
+          <!-- <option name="">Pessoa Física</option> -->
+      </select>
+  </div>
+</div>
+    <div class="form-row">
       <div class="form-group  md-col-5">
         <label for="nm_razao">Nome/Razão Social</label>
         <input id="nm_razao" class="form-control" name="nm_razao" />
@@ -42,10 +68,9 @@
       </div>
     </div>
   
-
     <div class="form-row">
       <div class="form-group md-col-3">
-        <label for="cd_cnpj">CNPJ</label>
+        <label for="cd_cnpj">CNPJ/CPF</label>
         <input id="cd_cnpj" name="cd_cnpj" class="form-control cnpj"   />
       </div>
 
@@ -160,7 +185,9 @@ $(document).ready(function(){
   $('.cep').mask('00000-000');
   $('.telefone').mask('(00) 0000-0000');
   $('.cpf').mask('000.000.000-00', {reverse: true});
+  // $('.cnpj').map(callback:(function(record){}))
   $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+  $('.cnpj').mask('000.000.000-00', {reverse: true})
   $('.ie').mask('000.000.000/0000-00', {reverse: true});/*arrumar função unmask() para remover as máscaras de edição*/
 
 var maskBehavior = function (val) {
