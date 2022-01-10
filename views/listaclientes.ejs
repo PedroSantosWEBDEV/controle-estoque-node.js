@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="/stylesheets/tabela.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/reset.css" rel="stylesheet" type="text/css">
+<link href="/stylesheets/menu.css" type="text/css" rel="stylesheet">
+<link href="/stylesheets/estilo_home.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+<script  type="text/javascript" src="/javascripts/jquery-3.2.1.min.js"></script>
+<script  type="text/javascript" src="/javascripts/typeahead.min.js"></script>
+<script type="text/javascript" src="/javascripts/script.js"></script>
+
+<title>Clientes</title>
+</head>
+
+<body> 
+  
+    <%- include('menu'); %>
+    
+      
+<div id="conteudo"> 
+<h1> Clientes </h1>
+<br>
+<h2> Lista de Clientes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">Código do Cliente:</th>
+          <th scope="col">Nome:</th>
+          <th scope="col">Telefone:</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Excluir</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+            <% for (var i =0; i< clientes.length; i++){ %>
+
+    <tr>
+        <td> <%= clientes[i].cd_cliente %> </td>
+        <td> <%= clientes[i].nm_fantasia %> </td>
+        <td> <%= clientes[i].nom_razao %> </td>
+        <td> <%= clientes[i].cd_telvendedor1%> </td>
+        <td> <a href='/editfornecedor/<%= clientes[i].cd_cliente %>' onclick= 'return confirm("Deseja editar esse fornecedor ?");'> Editar </a></td>
+        <td> <a href='/listafornecedores/delete/<%= clientes[i].cd_cliente %>' onclick= 'return confirm("Tem certeza ?");'> Excluir </a></td>
+
+    </tr>
+      <% } %>
+      <tbody>
+
+</table>
