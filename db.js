@@ -6,7 +6,7 @@ module.exports = function(){
         user: 'root',
         password: '',
         database: 'estoque',
-        port: 3306
+        port: 3307
     });
 
     connection.connect(function(err) {

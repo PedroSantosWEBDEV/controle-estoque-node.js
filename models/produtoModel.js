@@ -27,16 +27,18 @@ module.exports.inserirProduto = (formproduto, req, res) =>{
   delete dadosProd.nm_fantasia;
   delete dadosProd.cd_nfe;
 
-
-  let data = new Date();
   let numero = Math.floor(Math.random() * 1000);
 
-  let hoje =data.getFullYear()+'-'+ (data.getMonth() -1) +'-'+ data.getDate();
-  console.log(hoje)
+var data = new Date();
+var dia = String(data.getDate()).padStart(2, '0');
+var mes = String(data.getMonth() + 1).padStart(2, '0');
+var ano = data.getFullYear();
+dataAtual = ano + '-' + mes + '-' + dia;
+console.log(dataAtual);
   let dadosLa = { ...formproduto,
      cd_lancamento:numero,
      nm_fornecedor:formproduto.nm_fantasia,
-     dt_lancamento:hoje,
+     dt_lancamento:dataAtual,
      qt_produto: formproduto.qt_estoque,
      nm_tipo_lancamento:'entrada',
      produto_cd_produto:formproduto.cd_produto
