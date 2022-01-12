@@ -33,8 +33,8 @@
 
       <div class="form-row">
         <div class="form-group  md-col-2" >
-          <label for="estoque_cd_produto">Código</label>
-          <input id="estoque_cd_produto" name="estoque_cd_produto" class="form-control"    />
+          <label for="cd_produto">Código</label>
+          <input id="cd_produto" name="cd_produto" class="form-control"    />
         </div>
       </div>
                 
@@ -54,15 +54,15 @@
 
      <div class="form-row">
         <div class="form-group md-col-2">
-          <label for="tipo_embalagem_nm_tipo_embalagem">Tipo Embalagem</label>
-          <input id="tipo_embalagem_nm_tipo_embalagem" class="form-control" name="tipo_embalagem_nm_tipo_embalagem" />
+          <label for="nm_embalagem">Tipo Embalagem</label>
+          <input id="nm_embalagem" class="form-control" name="nm_embalagem" />
         </div>
     </div>
 
     <div class="form-row">
       <div class="form-group md-col-2">
-        <label for="qt_produto">Quantidade</label>
-        <input id="qt_produto" name="qt_produto" type="number" class="form-control"/> 
+        <label for="qt_estoque">Quantidade</label>
+        <input id="qt_estoque" name="qt_estoque" type="number" class="form-control"/> 
       </div>
     </div>
                   
@@ -118,22 +118,22 @@
                   },
                   source: registros
                 }). bind('typeahead:selected', function(obj, datum, name) {
-                    var codigo = document.getElementById('estoque_cd_produto');
+                    var codigo = document.getElementById('cd_produto');
                     var ncm = document.getElementById('cd_ncm');
                     var descricao = document.getElementById('ds_produto');
-                    var quantidade = document.getElementById('qt_produto');
+                    var quantidade = document.getElementById('qt_estoque');
                     var valor = document.getElementById('vl_unitario');
                     var vltotal = document.getElementById('vl_total');
-                    var embalagem = document.getElementById('tipo_embalagem_nm_tipo_embalagem');
+                    var embalagem = document.getElementById('nm_embalagem');
 
                     
                     codigo.value=datum.cd_produto;
                     ncm.value = datum.cd_ncm;
                     descricao.value=datum.ds_produto;
-                    quantidade.value=datum.qt_produto;
+                    quantidade.value=datum.qt_estoque;
                     valor.value =datum.vl_unitario;
-                    vltotal = datum.vl_total;
-                    embalagem.value=datum.tipo_embalagem_nm_tipo_embalagem;
+                    vltotal.value = datum.vl_total;
+                    embalagem.value=datum.nm_embalagem;
                 });   
 
         $(".lstSubMenu1").hide();
@@ -157,25 +157,25 @@
         $(".lstSubMenu5").slideToggle(); });    
 
 });
- 
-
-
-let camposAlterados = {};
-
-document.querySelectorAll('input, select').forEach(function(i){
+</script>
+<script>
+  var camposAlterados = {};
+  var id = document.getElementById('cd_produto').value;
+  var form = document.forms[0];
+form.querySelectorAll('input, select').forEach(function(i){
     i.addEventListener('change', function(e){
            camposAlterados[this.getAttribute('name')] = this.value;
         });
 });
 
-
-
 function enviar(){
   
   var jason = JSON.stringify(camposAlterados);
+  // console.log(jason);
+  // console.log(camposAlterados);
   $.ajax({
   type: "POST",
-  url: "/editar",
+  url: "/editar/:id",
   contentType: "application/json",
   data: jason,
   success: function(data){
@@ -190,7 +190,6 @@ console.log(data);
 
 
 };
-
 
 </script>
 

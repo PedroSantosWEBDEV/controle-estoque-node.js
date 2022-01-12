@@ -85,8 +85,8 @@ module.exports.buscadorTypeAhead = (key, req, res) =>{
 
       for(i=0;i<rows.length;i++){
             
-        let { cd_produto,cd_ncm, ds_produto,qt_produto, vl_unitario, vl_total, tipo_embalagem_nm_tipo_embalagem} = rows[i];
-        data.push({ cd_produto,cd_ncm, ds_produto,qt_produto, vl_unitario, vl_total, tipo_embalagem_nm_tipo_embalagem});
+        let { cd_produto,cd_ncm, ds_produto,qt_estoque, vl_unitario, vl_total, nm_embalagem} = rows[i];
+        data.push({ cd_produto,cd_ncm, ds_produto,qt_estoque, vl_unitario, vl_total, nm_embalagem});
 
       }
 
@@ -127,7 +127,18 @@ module.exports.atualizarEstoque = (formvenda, codigo, quantidade, req, res) =>{
   
 module.exports.editaProduto = (form, res, req, next) => {
  var dados = form;
- /*falta implementar*/
+ var connection = db();
+ 
+ connection.query('UPDATE produto SET ? WHERE cd_produto = ?', [form,id], function(err, result) {
+
+   if(err){console.error(err);
+
+   }else{
+
+     res. redirect('/listafornecedores');
+
+   }
+ });
 
 }
 
