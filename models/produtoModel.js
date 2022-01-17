@@ -1,6 +1,5 @@
 var mysql = require('mysql');
 var db = require('../db');
-var express = require('express');
 
 module.exports.getPagNovoProduto = ( req, res, next) =>{
     var connection = db();
@@ -129,19 +128,23 @@ module.exports.atualizarEstoque = (formvenda, codigo, quantidade, req, res) =>{
 module.exports.editaProduto = (form, res, req,next) => {
  var id = form.cd_produto;
  var connection = db();
- var router = express.Router();
+ produtoModel.carregarPagSaidaProduto(req, res, next);
 
-    connection.query('UPDATE produto SET vl_total = ? WHERE 1=1 and cd_produto = ?', [form,id], function(error, result,fields) {
-      if (error){ console.log(error);} 
-          let msg="Produto atualizado com sucesso!";
-          // res.render('editarproduto', {msg:msg}); 
-          // router.get('/editar', (req, res, next) => {
-          if (req.session)
-          res.render('home', {msg:msg}); 
-          else
-            res.render('home');
-      // });
- });
+//     connection.query('UPDATE produto SET vl_total = ? WHERE 1=1 and cd_produto = ?', [form,id], function(error, result,fields) {
+//       if (error){ console.log(error);}         
+//       console.log("AQUII");
+//  });
+ 
+//  let msg="Produto atualizado com sucesso!";
+//           // res.render('editarproduto', {msg:msg}); 
+//           router.get('/editar', (req, res, next) => {
+//           if (req.session){
+//             console.log("AQUII");
+//           res.render('home', {msg:msg}); 
+//           }
+//           else
+//             res.render('home');
+//       });
 
  }
 
