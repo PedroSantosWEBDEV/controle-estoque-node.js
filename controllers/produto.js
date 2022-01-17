@@ -265,6 +265,7 @@ module.exports.carregarEditarProduto = (req, res, next) =>{
 
 module.exports.editaProduto = (req, res, next) => {
     var form = req.body;
+    // console.log(form);
     produtoModel.editaProduto(form, req, res, next);
     
   };

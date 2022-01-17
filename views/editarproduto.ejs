@@ -159,23 +159,29 @@
 });
 </script>
 <script>
-  var camposAlterados = {};
-  var id = document.getElementById('cd_produto').value;
+  var campos = [];
+  // var id = document.getElementById('cd_produto');
+  var id = 0;
   var form = document.forms[0];
+  // var id = form[0].value;
 form.querySelectorAll('input, select').forEach(function(i){
+  // debugger;
     i.addEventListener('change', function(e){
-           camposAlterados[this.getAttribute('name')] = this.value;
+      // debugger;      
+           id = form[0].value;
+           campos[this.getAttribute('name')] = this.value;
+          //  console.log(camposAlterados);
         });
 });
 
 function enviar(){
-  
-  var jason = JSON.stringify(camposAlterados);
-  // console.log(jason);
-  // console.log(camposAlterados);
+ 
+  var e = {cd_produto:id,cd_ncm:campos['cd_ncm'],ds_produto:campos['ds_produto'],nm_embalagem:campos['nm_embalagem'],qt_estoque:campos['qt_estoque'],dt_validade:campos['dt_validade'],vl_unitario:campos['vl_unitario'],vl_total:campos['vl_total']};
+  var jason = JSON.stringify(e);
+  // debugger;
   $.ajax({
   type: "POST",
-  url: "/editar/:id",
+  url: "/editar",
   contentType: "application/json",
   data: jason,
   success: function(data){
