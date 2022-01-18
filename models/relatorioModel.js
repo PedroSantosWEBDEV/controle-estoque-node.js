@@ -10,20 +10,20 @@ module.exports.carregaRelatorio = (req, res, next) => {
     
     if (req.body.reportControl == 1){
         title = 'Produtos Mais Vendidos';
-        sql = "SELECT estoque_cd_produto, ds_produto, sum(qt_produto) as qt_soma FROM saida_produto GROUP BY estoque_cd_produto, ds_produto;";
+        sql = "SELECT cd_produto, ds_produto, sum(qt_produto) as qt_soma FROM saida_produto GROUP BY cd_produto, ds_produto";
     }
     
     if (req.body.reportControl == 2){
-        sql = "SELECT estoque_cd_produto, ds_produto, sum(qt_produto) as qt_soma FROM saida_produto GROUP BY estoque_cd_produto, ds_produto ORDER BY sum(qt_produto) DESC;";
+        sql = "SELECT cd_produto, ds_produto, sum(qt_produto) as qt_soma FROM saida_produto GROUP BY cd_produto, ds_produto ORDER BY sum(qt_produto) DESC";
         titulo = 'Produtos Menos Vendidos';
     }
     if(req.body.reportControl == 3){
-        sql = "Select cd_produto as estoque_cd_produto, ds_produto, qt_estoque as qt_soma from produto where qt_estoque <= 5 order by qt_estoque DESC;";
+        sql = "Select cd_produto, ds_produto, qt_estoque as qt_soma from produto where qt_estoque <= 5 order by qt_estoque DESC";
         title = 'Produtos com Estoque Mínimo';
     }
 
     if(req.body.reportControl == 4){
-      sql = "Select cd_produto as estoque_cd_produto, ds_produto, qt_estoque as qt_soma from produto where qt_estoque > 5 order by qt_estoque ASC";
+      sql = "Select cd_produto, ds_produto, qt_estoque as qt_soma from produto where qt_estoque > 5 order by qt_estoque ASC";
       title = 'Produtos com Estoque Máximo';
   }
 

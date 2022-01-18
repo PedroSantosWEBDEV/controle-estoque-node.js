@@ -248,7 +248,7 @@ module.exports.carregaTypeAhead = (req, res, next) =>{
           
 module.exports.atualizarEstoque = (req, res, next) =>{
   var formvenda = req.body;
-  var codigo = req.body.estoque_cd_produto;
+  var codigo = req.body.cd_produto;
   var quantidade = req.body.qt_produto;
 
   produtoModel.atualizarEstoque(formvenda,codigo, quantidade, req, res);
@@ -262,10 +262,9 @@ module.exports.carregarEditarProduto = (req, res, next) =>{
   res.render('editarproduto');            
 };
 
-
 module.exports.editaProduto = (req, res, next) => {
     var form = req.body;
-    // console.log(form);
-    produtoModel.editaProduto(form, req, res, next);
+    //Falta Implementar
+    produtoModel.editaProduto(form,q, req, res, next);
     
   };

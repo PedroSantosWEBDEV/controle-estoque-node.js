@@ -53,8 +53,8 @@
                       <td> <%= produtos[i].cd_produto %> </td>
                       <td> <%= produtos[i].cd_ncm %> </td>
                       <td> <%= produtos[i].ds_produto %> </td>
-                      <td> <%= produtos[i].tipo_embalagem_nm_tipo_embalagem %> </td>
-                      <td> <%= produtos[i].qt_produto %> </td>
+                      <td> <%= produtos[i].nm_embalagem %> </td>
+                      <td> <%= produtos[i].qt_estoque %> </td>
                       <td> <%= produtos[i].vl_unitario %> </td>
                       <td> <%= produtos[i].vl_total %> </td>
 
@@ -83,8 +83,8 @@
             Código: i.cd_produto,
             NCM: i.cd_ncm,
             Descrição: i.ds_produto,
-            Embalagem: i.tipo_embalagem_nm_tipo_embalagem,
-            Quantidade: i.qt_produto,
+            Embalagem: i.nm_embalagem,
+            Quantidade: i.qt_estoque,
             VlUnitário: i.vl_unitario,
             VlTotal: i.vl_total,
           
